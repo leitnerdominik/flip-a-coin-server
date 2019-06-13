@@ -84,6 +84,7 @@ exports.addHeads = async (req, res, next) => {
 exports.addUserTails = async (req, res, next) => {
   try {
     const { userId } = req.cookies;
+    
     if (!userId) {
       throw new Error('User not found!');
     }
