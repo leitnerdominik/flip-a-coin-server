@@ -11,6 +11,8 @@ const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${
   process.env.DB_TOKEN
 }@${process.env.DB_HOST}/${process.env.DB_NAME}`;
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -39,5 +41,5 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(MONGODB_URI)
-  .then(() => app.listen(8080))
+  .then(() => app.listen(PORT))
   .catch(err => console.log(err));
